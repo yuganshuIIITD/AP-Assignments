@@ -4,9 +4,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 public class slots {
-    int hos_id;
     HashMap<Integer,Integer> slot;
     HashMap<Integer,Integer> type;
+    slots(){
+        this.slot=new HashMap<>();
+        this.type=new HashMap<>();
+    }
     void create_slot(int no,List<String> v){
         Scanner sc=new Scanner(System.in);
         for(int i=0;i<no;i++){
@@ -30,7 +33,7 @@ public class slots {
                 slot.put(day, s);
                 type.put(day, vac);
             }
-        System.out.println("Slot added by hospital: "+hos_id+" for day: "+day+" Available quantity: "+s+" of vaccine "+v.get(type.get(day)));
+        System.out.println("Slot added by hospital for day: "+day+" Available quantity: "+s+" of vaccine "+v.get(type.get(day)));
         }
 
     }

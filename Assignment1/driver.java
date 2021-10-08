@@ -45,7 +45,9 @@ public class driver {
                 System.out.println("Enter hospital pincode ");
                 int pincode=sc.nextInt();
                 hospitals h =new hospitals(hos_name, pincode, hosid);
+                h.sl=new slots();
                 hoslist.add(h);
+
                 h.printdetail();
                 hosid++;
             }else if(option==3){

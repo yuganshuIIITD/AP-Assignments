@@ -4,6 +4,7 @@ public class citizen {
     String name;
     int age;
     Long unique_id;
+    String vaccination_status;
     citizen(String name,int age,Long unique_id){
         this.name=name;
         this.age=age;

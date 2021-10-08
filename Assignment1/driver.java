@@ -7,7 +7,9 @@ public class driver {
     public static void main(String[] args) {
         Scanner sc =new Scanner(System.in);
         List<Assignment1.vaccine> vaclist=new ArrayList<>();
+        List<String> vlist=new ArrayList<>();
         List<hospitals> hoslist=new ArrayList<>();
+        List<citizen> citlist=new ArrayList<>();
         int hosid=100000;
         while(true){
             System.out.println("CoWin Portal initialized...");
@@ -34,6 +36,7 @@ public class driver {
                 int gap=sc.nextInt();
                 vaccine v = new vaccine(name, doses, gap);
                 vaclist.add(v);
+                vlist.add(name);
                 v.printdetails();
             }else if(option==2){
                 System.out.println("Enter name of hospital ");
@@ -45,6 +48,24 @@ public class driver {
                 hoslist.add(h);
                 h.printdetail();
                 hosid++;
+            }else if(option==3){
+                System.out.println("Enter name of citizen to register ");;
+                sc.nextLine();
+                String name=sc.nextLine();
+                System.out.println("Enter Age ");
+                int age =sc.nextInt();
+                System.out.println("Enter your 12 digit unique id ");
+                Long id=sc.nextLong();
+                if(age<18){
+                    System.out.println("Only above 18 are allowed ");
+                }else{
+                    citizen c=new citizen(name, age,id);
+                    citlist.add(c);
+                    c.printdetails();
+                    
+                }
+            }else if(option==4){
+
             }
 
         }

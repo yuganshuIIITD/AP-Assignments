@@ -17,8 +17,10 @@ public class hospitals {
         System.out.println("Unique ID : "+id);
     }
     void print_slots(List<String> vlist){
+        int i=0;
         for(Integer a: sl.slot.keySet()){
-            System.out.println("Day: "+ a +" vaccine "+vlist.get(sl.type.get(a))+" Available Quantity: "+sl.slot.get(a));
+            System.out.println(i + "-> Day: "+ a +" vaccine "+vlist.get(sl.type.get(a))+" Available Quantity: "+sl.slot.get(a));
+            i++;
         }
 
     }

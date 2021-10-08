@@ -9,6 +9,7 @@ public class citizen {
     int last_month;
     int next_day;
     int next_month;
+    String vaccine;
     int no_of_doses;
     citizen(String name,int age,Long unique_id){
         this.name=name;

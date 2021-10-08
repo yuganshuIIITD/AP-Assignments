@@ -1,5 +1,7 @@
 package Assignment1;
 
+import java.util.List;
+
 public class hospitals {
     String name;
     int pincode;
@@ -13,5 +15,11 @@ public class hospitals {
     void printdetail(){
         System.out.println("Hospital Name : "+name+", Pincode : "+pincode);
         System.out.println("Unique ID : "+id);
+    }
+    void print_slots(List<String> vlist){
+        for(Integer a: sl.slot.keySet()){
+            System.out.println("Day: "+ a +" vaccine "+vlist.get(sl.type.get(a))+" Available Quantity: "+sl.slot.get(a));
+        }
+
     }
 }

@@ -65,9 +65,36 @@ public class driver {
                     
                 }
             }else if(option==4){
+                System.out.println("Enter hospital id for which you want to create slot ");
+                int id=sc.nextInt();
+                System.out.println("Enter no of slots you want to create ");
+                int n=sc.nextInt();
+                for(int i=0;i<hoslist.size();i++){
+                    if(hoslist.get(i).id==id){
+                        hoslist.get(i).sl.create_slot(n, vlist);
+                    }
+                }
 
             }else if(option==5){
                 
+            }else if(option==6){
+                System.out.println("Enter hospital id for which you want to get slots ");
+                int id=sc.nextInt();
+                for(int i=0;i<hoslist.size();i++){
+                    if(hoslist.get(i).id==id){
+                        hoslist.get(i).print_slots(vlist);
+                    }
+                }
+
+            }else if(option==7){
+                System.out.println("Enter your unique id ");
+                Long id=sc.nextLong();
+                for(int i=0;i<citlist.size();i++){
+                    if(citlist.get(i).unique_id==id){
+                        
+                    }
+                }
+
             }
 
         }

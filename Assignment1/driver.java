@@ -137,6 +137,61 @@ public class driver {
                 }else if(opt==2){
                     sc.nextLine();
                     System.out.println("Enter name of vaccine ");
+                    String invac=sc.nextLine();
+                    int vindex=0;
+                    while(vlist.get(vindex)!=invac){
+                        vindex++;
+                    }
+                    for(int i=0;i<hoslist.size();i++){
+                        int temp=0;
+                        for(Integer a: hoslist.get(i).sl.type.keySet()){
+                            if(hoslist.get(i).sl.type.get(a)==vindex){
+                                temp=1;
+                            }
+                        }
+                        if(temp==1){
+                            System.out.println(hoslist.get(i).id + " " + hoslist.get(i).name);
+                        }
+                    }
+                    System.out.println("Enter hospital id: ");
+                    int hid=sc.nextInt();
+                    for(int i=0;i<hoslist.size();i++){
+                        if(hoslist.get(i).id==hid){
+                            hoslist.get(i).print_slots(vlist);
+                            System.out.println("Choose slot ");
+                            int in=sc.nextInt();
+                            int index=0;
+                            for(Integer a: hoslist.get(i).sl.slot.keySet()){
+                                int ans=a;
+                                int vacindex;
+                                if(index==in){
+                                    int temp=hoslist.get(i).sl.slot.get(a);
+                                    vacindex=hoslist.get(i).sl.type.get(a);
+                                    String vacname=vlist.get(vacindex);
+                                    for(int j=0;j<citlist.size();j++){
+                                        if(citlist.get(j).unique_id==citid){
+                                            citlist.get(j).no_of_doses++;
+                                            citlist.get(j).vaccine=vacname;
+                                            for(int k=0;k<vaclist.size();k++){
+                                                if(vaclist.get(k).name==vacname){
+                                                    if(citlist.get(j).no_of_doses<vaclist.get(k).doses){
+                                                        citlist.get(j).vaccination_status="PARTIALLY VACCINATED";
+                                                    }else{
+                                                        citlist.get(j).vaccination_status="FULLY VACCINATED";
+                                                    }
+                                                }
+                                            }    
+                                        }
+                                    }
+                                    hoslist.get(i).sl.slot.replace(a, temp,temp-1);
+                                    break;
+                                }else{
+                                    index++;
+                                }
+                            }
+                           
+                        }
+                    }
                 }else{
                 }
 

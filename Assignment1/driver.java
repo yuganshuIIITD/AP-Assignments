@@ -113,8 +113,18 @@ public class driver {
                                 int vacindex;
                                 if(index==in){
                                     int temp=hoslist.get(i).sl.slot.get(a);
+                                    int date=a;
                                     vacindex=hoslist.get(i).sl.type.get(a);
                                     String vacname=vlist.get(vacindex);
+                                    int dd=0;
+                                    for(int k=0;k<vaclist.size();k++){
+                                        if(vaclist.get(k).name==vacname){
+                                        dd=vaclist.get(k).gap+date;
+                                        if(dd>30){
+                                            dd=dd-30;
+                                        }
+                                        }
+                                    }
                                     for(int j=0;j<citlist.size();j++){
                                         if(citlist.get(j).unique_id==citid){
                                             citlist.get(j).no_of_doses++;
@@ -123,6 +133,7 @@ public class driver {
                                                 if(vaclist.get(k).name==vacname){
                                                     if(citlist.get(j).no_of_doses<vaclist.get(k).doses){
                                                         citlist.get(j).vaccination_status="PARTIALLY VACCINATED";
+                                                        citlist.get(j).due_date=dd;
                                                     }else{
                                                         citlist.get(j).vaccination_status="FULLY VACCINATED";
                                                     }
@@ -171,17 +182,27 @@ public class driver {
                                 int vacindex;
                                 if(index==in){
                                     int temp=hoslist.get(i).sl.slot.get(a);
+                                    int date=a;
                                     vacindex=hoslist.get(i).sl.type.get(a);
                                     String vacname=vlist.get(vacindex);
+                                    int dd=0;
+                                    for(int k=0;k<vaclist.size();k++){
+                                        if(vaclist.get(k).name==vacname){
+                                        dd=vaclist.get(k).gap+date;
+                                        if(dd>30){
+                                            dd=dd-30;
+                                        }
+                                        }
+                                    }
                                     for(int j=0;j<citlist.size();j++){
                                         if(citlist.get(j).unique_id==citid){
                                             citlist.get(j).no_of_doses++;
                                             citlist.get(j).vaccine=vacname;
-                                            System.out.println(citlist.get(j).name+" vaccinated with "+ vacname);
                                             for(int k=0;k<vaclist.size();k++){
                                                 if(vaclist.get(k).name==vacname){
                                                     if(citlist.get(j).no_of_doses<vaclist.get(k).doses){
                                                         citlist.get(j).vaccination_status="PARTIALLY VACCINATED";
+                                                        citlist.get(j).due_date=dd;
                                                     }else{
                                                         citlist.get(j).vaccination_status="FULLY VACCINATED";
                                                     }
@@ -219,6 +240,9 @@ public class driver {
                         System.out.println("Vaccination Status: " + citlist.get(i).vaccination_status);
                         System.out.println("Vaccine given: "+ citlist.get(i).vaccine);
                         System.out.println("Number of Doses given: " + citlist.get(i).no_of_doses);
+                        if(citlist.get(i).vaccination_status=="PARTIALLY VACCINATED"){
+                            System.out.println("Next due date: "+citlist.get(i).due_date);
+                        }
                         
                     }
                 }

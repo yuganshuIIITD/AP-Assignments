@@ -5,10 +5,7 @@ public class citizen {
     int age;
     Long unique_id;
     String vaccination_status;
-    int last_day;
-    int last_month;
-    int next_day;
-    int next_month;
+    int due_date;
     String vaccine;
     int no_of_doses;
     citizen(String name,int age,Long unique_id){
@@ -17,7 +14,8 @@ public class citizen {
         this.unique_id=unique_id;
         vaccination_status="REGISTERED";
         no_of_doses=0;
-    }
+        this.due_date=-1;
+        }
     void printdetails(){
         System.out.println("Citizen Name: "+name+"  Age: "+age+"  Unique ID: "+unique_id);
     }

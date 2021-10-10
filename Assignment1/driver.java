@@ -63,7 +63,8 @@ public class driver {
                 System.out.println("Enter Age ");
                 int age =sc.nextInt();
                 System.out.println("Enter your 12 digit unique id ");
-                Long id=sc.nextLong();
+                sc.nextLine();
+                String id=sc.nextLine();
                 if(age<18){
                     System.out.println("Only above 18 are allowed ");
                 }else{
@@ -85,7 +86,7 @@ public class driver {
 
             }else if(option==5){
                 System.out.println("Enter patient unique id: ");
-                Long citid=sc.nextLong();
+                String citid=sc.nextLine();
                 System.out.println("1. Search by pincode");
                 System.out.println("2. Search by vaccine");
                 System.out.println("3. Exit ");
@@ -234,9 +235,8 @@ public class driver {
                 }
 
             }else if(option==7){
-                System.out.println(citlist.get(0).unique_id);
                 System.out.println("Enter your unique id ");
-                Long id=sc.nextLong();
+                String id=sc.nextLine();
                 for(int i=0;i<citlist.size();i++){
                     if(citlist.get(i).unique_id==id){
                         System.out.println("Vaccination Status: " + citlist.get(i).vaccination_status);

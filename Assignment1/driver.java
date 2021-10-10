@@ -32,8 +32,13 @@ public class driver {
                 String name=sc.nextLine();
                 System.out.println("Enter number of total doses required ");
                 int doses=sc.nextInt();
+                int gap;
+                if(doses>1){
                 System.out.println("Enter the gap between doses ");
-                int gap=sc.nextInt();
+                    gap=sc.nextInt();
+                }else{
+                    gap=0;
+                }
                 vaccine v = new vaccine(name, doses, gap);
                 vaclist.add(v);
                 vlist.add(name);

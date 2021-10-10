@@ -85,6 +85,7 @@ public class driver {
                 }
 
             }else if(option==5){
+                sc.nextLine();
                 System.out.println("Enter patient unique id: ");
                 String citid=sc.nextLine();
                 System.out.println("1. Search by pincode");
@@ -128,7 +129,7 @@ public class driver {
                                         }
                                     }
                                     for(int j=0;j<citlist.size();j++){
-                                        if(citlist.get(j).unique_id==citid){
+                                        if(citlist.get(j).unique_id.equals(citid)){
                                             citlist.get(j).no_of_doses++;
                                             citlist.get(j).vaccine=vacname;
                                             for(int k=0;k<vaclist.size();k++){
@@ -197,7 +198,7 @@ public class driver {
                                         }
                                     }
                                     for(int j=0;j<citlist.size();j++){
-                                        if(citlist.get(j).unique_id==citid){
+                                        if(citlist.get(j).unique_id.equals(citid)){
                                             citlist.get(j).no_of_doses++;
                                             citlist.get(j).vaccine=vacname;
                                             for(int k=0;k<vaclist.size();k++){
@@ -236,9 +237,10 @@ public class driver {
 
             }else if(option==7){
                 System.out.println("Enter your unique id ");
+                sc.nextLine();
                 String id=sc.nextLine();
                 for(int i=0;i<citlist.size();i++){
-                    if(citlist.get(i).unique_id==id){
+                    if(citlist.get(i).unique_id.equals(id)){
                         System.out.println("Vaccination Status: " + citlist.get(i).vaccination_status);
                         System.out.println("Vaccine given: "+ citlist.get(i).vaccine);
                         System.out.println("Number of Doses given: " + citlist.get(i).no_of_doses);

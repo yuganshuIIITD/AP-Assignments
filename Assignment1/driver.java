@@ -177,6 +177,7 @@ public class driver {
                                         if(citlist.get(j).unique_id==citid){
                                             citlist.get(j).no_of_doses++;
                                             citlist.get(j).vaccine=vacname;
+                                            System.out.println(citlist.get(j).name+" vaccinated with "+ vacname);
                                             for(int k=0;k<vaclist.size();k++){
                                                 if(vaclist.get(k).name==vacname){
                                                     if(citlist.get(j).no_of_doses<vaclist.get(k).doses){
@@ -197,8 +198,8 @@ public class driver {
                            
                         }
                     }
-                }else{
                 }
+
 
                 
             }else if(option==6){

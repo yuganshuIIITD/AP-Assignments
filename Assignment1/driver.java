@@ -11,8 +11,9 @@ public class driver {
         List<hospitals> hoslist=new ArrayList<>();
         List<citizen> citlist=new ArrayList<>();
         int hosid=100000;
+        System.out.println("CoWin Portal initialized...");
         while(true){
-            System.out.println("CoWin Portal initialized...");
+            
             System.out.println("................................\n");
             System.out.println("1. Add Vaccine");
             System.out.println("2. Register Hospital");
@@ -233,6 +234,7 @@ public class driver {
                 }
 
             }else if(option==7){
+                System.out.println(citlist.get(0).unique_id);
                 System.out.println("Enter your unique id ");
                 Long id=sc.nextLong();
                 for(int i=0;i<citlist.size();i++){

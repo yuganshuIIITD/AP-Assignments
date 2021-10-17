@@ -1,5 +1,5 @@
 package Assignment2;
 
-public class participants {
+public abstract class participants {
     
 }

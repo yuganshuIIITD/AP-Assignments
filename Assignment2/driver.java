@@ -49,9 +49,11 @@ public class driver {
                 }else if(input==2){
                     C1.print_assesment();
                 }else if(input==3){
-
+                    temp.submit_ass(C1);
+                    System.out.println("Welcome "+ temp.getName());
                 }else if(input==4){
-
+                    temp.show_grade(C1);
+                    System.out.println("Welcome "+ temp.getName());
                 }else if(input==5){
                     C1.print_comments();
                     System.out.println("Welcome "+ temp.getName());
@@ -166,7 +168,8 @@ public class driver {
                     C1.print_assesment();
                     System.out.println("Welcome "+ temp.instructor_name);
                 }else if(input==5){
-
+                    temp.grade(C1);
+                    System.out.println("Welcome "+ temp.instructor_name);
                 }else if(input==6){
                     System.out.println("list of open assesments : ");
                     C1.close_assement();

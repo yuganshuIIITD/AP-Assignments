@@ -1,5 +1,5 @@
 package Assignment2;
 
-public class assesment {
+public abstract class assesment {
     
 }

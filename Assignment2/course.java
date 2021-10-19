@@ -65,7 +65,7 @@ public class course {
         for(int i=0;i<ass.size();i++){
             if(ass.get(i).status.equals("open")){
             tmap.put(index,ass.get(i).getProblem_statement());
-            System.out.println("ID: "+index+ "Assignment: "+ass.get(i).getProblem_statement()+ "MAX MARKS: "+ass.get(i).getMarks());
+            System.out.println("ID: "+index+ " Assignment: "+ass.get(i).getProblem_statement()+ "MAX MARKS: "+ass.get(i).getMarks());
             System.out.println("---------------------------------------------------");
             index++;
             }
@@ -75,7 +75,7 @@ public class course {
             int temp=index2+index;
             if(quizs.get(k).getStatus().equals("open")){
             tmap.put(temp,quizs.get(k).getQuestion());
-            System.out.println("ID: "+temp+"Question: "+quizs.get(k).getQuestion());
+            System.out.println("ID: "+temp+" Question: "+quizs.get(k).getQuestion());
             System.out.println("---------------------------------------------------");
             index2++;
             }

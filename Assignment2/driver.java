@@ -33,6 +33,7 @@ public class driver {
                 for(int j=0;j<C1.stu.size();j++){
                     System.out.println(j+ "-"+ C1.stu.get(j).getName());
                 }
+                System.out.println("Choose id: ");
                 int choice=sc.nextInt();
                 students temp=C1.stu.get(choice);
                 System.out.println("Welcome "+ temp.getName());
@@ -83,6 +84,7 @@ public class driver {
                     System.out.println(k+ "- " + C1.course_instructors.get(k).instructor_name);
 
                 }
+                System.out.println("Choose id: ");
                 int choice=sc.nextInt();
                 instructor temp=C1.course_instructors.get(choice);
                 System.out.println("Welcome "+ temp.instructor_name);

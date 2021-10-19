@@ -28,7 +28,7 @@ public class students extends participants{
         int index=0;
         HashMap<Integer,String> tmap=new HashMap<>();
         for(int i=0;i<C.ass.size();i++){
-            if(!sub_ass.contains(C.ass.get(i).getProblem_statement())){
+            if(!sub_ass.contains(C.ass.get(i).getProblem_statement()) && C.ass.get(i).status=="open"){
                 System.out.println("ID: "+index+" Assignment "+C.ass.get(i).getProblem_statement()+" Max marks "+ C.ass.get(i).getMarks());
                 tmap.put(index, C.ass.get(i).getProblem_statement());
                 index++;
@@ -39,7 +39,7 @@ public class students extends participants{
         int index2=0;
         for(int j=0;j<C.quizs.size();j++){
             int temp=index+index2;
-            if(!sub_ass.contains(C.quizs.get(j).getQuestion())){
+            if(!sub_ass.contains(C.quizs.get(j).getQuestion()) && C.quizs.get(j).getStatus()=="open"){
                 System.out.println("ID: "+ temp+ " Question: "+ C.quizs.get(j).getQuestion());
                 tmap.put(temp,C.quizs.get(j).getQuestion());
                 index2++;
@@ -48,11 +48,24 @@ public class students extends participants{
         System.out.println("Enter id of assignment: ");
         int id=sc.nextInt();
         String ques=tmap.get(id);
-        System.out.println("Enter filename of assignment : ");
         sc.nextLine();
+        boolean check=false;
+        for(int k=0;k<C.quizs.size();k++){
+            if(C.quizs.get(k).getQuestion()==ques){
+                System.out.println(ques);
+                sub_ass.add(ques);
+                String ans=sc.nextLine();
+                assfile.put(ques,ans);
+                assmarks.put(ques, -1);
+                check=true;
+            }
+        }
+        if(check==false){
+        System.out.println("Enter filename of assignment : ");
         String fn=sc.nextLine();
+
         if(fn.length()>4){
-        if(!fn.substring(fn.length()).equals(".mp4")  || !fn.substring(fn.length()-4).equals(".zip")){
+        if(!fn.substring(fn.length()).equals(".mp4")  && !fn.substring(fn.length()-4).equals(".zip")){
             System.out.println("Invalid input format");
 
         }else{
@@ -63,6 +76,7 @@ public class students extends participants{
     }else{
         System.out.println("Invalid input format");
     }
+}
     }
     }
     void show_grade(course C){
@@ -71,6 +85,7 @@ public class students extends participants{
             if(assmarks.get(a)!=-1){
             System.out.println("submission: "+ a + " Marks: " + assmarks.get(a));
             }
+            System.out.println("");
         }
         System.out.println("Ungraded submissions");
         for(String b: assmarks.keySet()){

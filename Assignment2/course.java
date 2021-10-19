@@ -43,12 +43,12 @@ public class course {
     }
     void print_assesment(){
         for(int i=0;i<ass.size();i++){
-            System.out.println("ID: "+i+ "Assignment: "+ass.get(i).getProblem_statement()+ "MAX MARKS: "+ass.get(i).getMarks());
+            System.out.println("ID: "+i+ " Assignment: "+ass.get(i).getProblem_statement()+ " MAX MARKS: "+ass.get(i).getMarks());
             System.out.println("---------------------------------------------------");
         }
         for(int k=0;k<quizs.size();k++){
             int temp=k+ass.size();
-            System.out.println("ID: "+temp+"Question: "+quizs.get(k).getQuestion());
+            System.out.println("ID: "+temp+" Question: "+quizs.get(k).getQuestion());
             System.out.println("---------------------------------------------------");
         }
     }

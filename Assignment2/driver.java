@@ -15,6 +15,9 @@ public class driver {
         S2.setName("Pranav");
         students S0=new students();
         S0.setName("Shrugal");
+        C1.stu.add(S0);
+        C1.stu.add(S1);
+        C1.stu.add(S2);
         C1.course_instructors.add(I1);
         C1.course_instructors.add(I2);
         while(true){
@@ -26,6 +29,14 @@ public class driver {
             if(in==3){
                 break;
             }else if(in==2){
+                System.out.println("Students:");
+                for(int j=0;j<C1.stu.size();j++){
+                    System.out.println(j+ "-"+ C1.stu.get(j).getName());
+                }
+                int choice=sc.nextInt();
+                students temp=C1.stu.get(choice);
+                System.out.println("Welcome "+ temp.getName());
+                while(true){
                 System.out.println("1. View lecture matirial ");
                 System.out.println("2. View Assesments");
                 System.out.println("3. Submit Assesments");
@@ -34,12 +45,8 @@ public class driver {
                 System.out.println("6. Add Comments");
                 System.out.println("7. Logout");
                 int input = sc.nextInt();
-                System.out.println("Students:");
-                for(int j=0;j<C1.stu.size();j++){
-                    System.out.println(j+ "-"+ C1.stu.get(j).getName());
-                }
-                int choice=sc.nextInt();
-                students temp=C1.stu.get(choice);
+                
+                
                 if(input==7){
                     break;
                 }else if(input==1){
@@ -58,6 +65,7 @@ public class driver {
                     C1.print_comments();
                     System.out.println("Welcome "+ temp.getName());
                 }else if(input==6){
+                    System.out.println("Enter comment: ");
                     sc.nextLine();
                     String com=sc.nextLine();
                     comment c=new comment();
@@ -68,7 +76,7 @@ public class driver {
                     C1.commentlist.add(c);
                     System.out.println("Welcome "+ temp.getName());
                 }
-
+            }
             }else if(in==1){
                 System.out.println("Instructors: ");
                 for(int k=0;k<C1.course_instructors.size();k++){
@@ -77,6 +85,7 @@ public class driver {
                 }
                 int choice=sc.nextInt();
                 instructor temp=C1.course_instructors.get(choice);
+                System.out.println("Welcome "+ temp.instructor_name);
                 while(true){
                 System.out.println("1. Add class material");
                 System.out.println("2. Add Assesment");
@@ -122,6 +131,10 @@ public class driver {
                         String topic=sc.nextLine();
                         System.out.println("Enter file name : ");
                         String filename=sc.nextLine();
+                        if(filename.length()>4){
+                        if(!filename.substring(filename.length()-4).equals(".mp4") && !filename.substring(filename.length()-4).equals(".zip")){
+                            System.out.println("Wrong file format");
+                        }else{
                         lecturevid v=new lecturevid();
                         v.setFile_name(filename);
                         v.setTopic(topic);
@@ -129,6 +142,10 @@ public class driver {
                         v.current_Date=current_Date;
                         v.prof=temp.instructor_name;
                         C1.lec_video.add(v);
+                        }
+                    }else{
+                        System.out.println("Wrong file format");
+                    }
                         System.out.println("Welcome "+ temp.instructor_name);
                     }
                 }else if(input==2){
@@ -179,6 +196,7 @@ public class driver {
                     System.out.println("Welcome "+ temp.instructor_name);
 
                 }else if(input==8){
+                    System.out.println("Enter comment: ");
                     sc.nextLine();
                     String com=sc.nextLine();
                     comment c=new comment();

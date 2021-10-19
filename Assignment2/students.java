@@ -51,7 +51,8 @@ public class students extends participants{
         System.out.println("Enter filename of assignment : ");
         sc.nextLine();
         String fn=sc.nextLine();
-        if(!fn.substring(-4).equals(".mp4")  || !fn.substring(-4).equals(".zip")){
+        if(fn.length()>4){
+        if(!fn.substring(fn.length()).equals(".mp4")  || !fn.substring(fn.length()-4).equals(".zip")){
             System.out.println("Invalid input format");
 
         }else{
@@ -59,6 +60,9 @@ public class students extends participants{
             assfile.put(ques,fn);
             assmarks.put(ques, -1);
         }
+    }else{
+        System.out.println("Invalid input format");
+    }
     }
     }
     void show_grade(course C){

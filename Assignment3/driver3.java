@@ -4,9 +4,10 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class driver3 {
-    HashMap<Integer,ArrayList<String>> matlabel=new HashMap<>();
+    
     public static void main(String[] args) {
     HashMap<Integer,matrix> matid=new HashMap<>();
+    HashMap<Integer,ArrayList<String>> matlabel=new HashMap<>();
     int id=0;
     Scanner sc=new Scanner(System.in);
         while(true){
@@ -42,71 +43,102 @@ public class driver3 {
                     par.add(temp);
                 }
                 int check=checktype(par,r,c);
+                ArrayList<String> l=new ArrayList<>();
                 if(check==1){
                     matrix m1=new rectangular(r, c, par);
                     matid.put(id, m1);
+                    l=addlab(par,r,c);
+                    matlabel.put(id, l);
                     id++;
                 }else if(check==2){
                     matrix m1=new row(r, c, par);
                     matid.put(id, m1);
+                    l=addlab(par,r,c);
+                    matlabel.put(id, l);
                     id++;
                 }else if(check==3){
                     matrix m1=new column(r, c, par);
                     matid.put(id, m1);
+                    l=addlab(par,r,c);
+                    matlabel.put(id, l);
                     id++;
                 }else if(check==4){
                     matrix m1=new square(r, c, par);
                     matid.put(id, m1);
+                    l=addlab(par,r,c);
+                    matlabel.put(id, l);
                     id++;
                 }else if(check==5){
                     matrix m1=new symmetric(r, c, par);
                     matid.put(id, m1);
+                    l=addlab(par,r,c);
+                    matlabel.put(id, l);
                     id++;
                 }else if(check==6){
                     matrix m1=new skew(r, c, par);
                     matid.put(id, m1);
+                    l=addlab(par,r,c);
+                    matlabel.put(id, l);
                     id++;
                 }else if(check==7){
                     matrix m1=new ut(r, c, par);
                     matid.put(id, m1);
+                    l=addlab(par,r,c);
+                    matlabel.put(id, l);
                     id++;
                 }else if(check==8){
                     matrix m1=new lt(r, c, par);
                     matid.put(id, m1);
+                    l=addlab(par,r,c);
+                    matlabel.put(id, l);
                     id++;
                 }else if(check==9){
                     matrix m1=new singular(r, c, par);
                     matid.put(id, m1);
+                    l=addlab(par,r,c);
+                    matlabel.put(id, l);
                     id++;
 
                 }else if(check==10){
                     matrix m1=new diagonal(r, c, par);
                     matid.put(id, m1);
+                    l=addlab(par,r,c);
+                    matlabel.put(id, l);
                     id++;
 
                 }else if(check==11){
                     matrix m1=new scalar(r, c, par);
                     matid.put(id, m1);
+                    l=addlab(par,r,c);
+                    matlabel.put(id, l);
                     id++;
 
                 }else if(check==12){
                     matrix m1=new identity(r, c, par);
                     matid.put(id, m1);
+                    l=addlab(par,r,c);
+                    matlabel.put(id, l);
                     id++;
 
                 }else if(check==13){
                     matrix m1=new singelton(r, c, par);
                     matid.put(id, m1);
+                    l=addlab(par,r,c);
+                    matlabel.put(id, l);
                     id++;
 
                 }else if(check==14){
                     matrix m1=new ones(r, c, par);
                     matid.put(id, m1);
+                    l=addlab(par,r,c);
+                    matlabel.put(id, l);
                     id++;
 
                 }else if(check==15){
                     matrix m1=new nullmat(r, c, par);
                     matid.put(id, m1);
+                    l=addlab(par,r,c);
+                    matlabel.put(id, l);
                     id++;
 
                 }
@@ -129,13 +161,43 @@ public class driver3 {
                 System.out.println("15. Null");
 
                 int in=sc.nextInt();
+                if(in==1){
 
+                }else if(in==2){
+
+                }else if(in==3){
+
+                }else if(in==4){
+
+                }else if(in==5){
+
+                }else if(in==6){
+
+                }else if(in==7){
+
+                }else if(in==8){
+
+                }else if(in==9){
+
+                }else if(in==10){
+
+                }else if(in==11){
+
+                }else if(in==12){
+
+                }else if(in==13){
+
+                }else if(in==14){
+
+                }else if(in==15){
+                    
+                }
 
 
             }else if(input==3){
                 int choosen_mat;
                 for(int key: matid.keySet()){
-                    
+
                 }
 
             }else if(input==4){
@@ -301,6 +363,132 @@ public class driver3 {
             }
         }
        return 0; 
+    }
+    public static ArrayList<String> addlab(ArrayList<ArrayList<Integer>> par,int r,int c){
+        ArrayList<String> ret=new ArrayList<>();
+        boolean on=true;
+        int t=par.get(0).get(0);
+        for(int i=0;i<r;i++){
+            for(int j=0;j<r;j++){
+                if(par.get(i).get(j)!=t){
+                    on=false;
+                    break;
+                }
+            }
+        }
+        if(on=true){
+            if(t==1){
+                ret.add("Ones");
+            }
+            if(t==0){
+                ret.add("Null");
+            }
+        }
+        if(r==c){
+            ret.add("Square");
+            if(r==1){
+                ret.add("Singelton");
+            }
+            boolean symmetric=true;
+            for(int i=0;i<r;i++){
+                for(int j=0;j<c;j++){
+                    if(par.get(i).get(j)!=par.get(j).get(i)){
+                        symmetric=false;
+                        break;
+                    }
+                }
+            }
+            if(symmetric==true){
+                ret.add("Symmetric");
+                boolean diagonal=true;
+                for(int i=0;i<r;i++){
+                    for(int j=0;j<c;j++){
+                        if(i!=j){
+                            if(par.get(i).get(j)!=0){
+                                diagonal=false;
+                                break;
+                            }
+                        }
+                    }
+                }
+                if(diagonal==true){
+                    ret.add("Diagonal");
+                    boolean scalar=true;
+                    int temp=par.get(0).get(0);
+                    for(int i=1;i<r;i++){   
+                        if(par.get(i).get(i)!=temp){
+                            scalar=false;
+                            break;
+                        }
+                    }
+                    if(scalar==true){
+                        ret.add("Scalar");
+                        if(par.get(0).get(0)==1){
+                            ret.add("Identity");
+                        }
+                    
+                    }
+                }
+            }
+            boolean skew=true;
+            for(int i=0;i<r;i++){
+                for(int j=0;j<c;j++){
+                    if(par.get(i).get(j)!=-(par.get(j).get(i))){
+                        skew=false;
+                        break;
+                    }
+                }
+            }
+            if(skew==true){
+                ret.add("Skew Symmetric");
+            }
+            boolean lowert=true;
+            for(int i=0;i<r;i++){
+                for(int j=i+1;j<r;j++){
+                    if(par.get(i).get(j)!=0){
+                        lowert=false;
+                        break;
+                    }
+                }
+            }
+            if(lowert==true){
+                ret.add("Lower Triangular");
+            }
+            boolean uppert=true;
+            for(int i=0;i<r;i++){
+                for(int j=0;j<i;j++){
+                    if(par.get(i).get(j)!=0){
+                        uppert=false;
+                        break;
+                    }
+                }
+            }
+            if(uppert==true){
+                ret.add("Upper Triangular");
+            }
+            int d=-1;
+            if(r==2){
+                 d=(par.get(0).get(0)*par.get(1).get(1))-(par.get(0).get(1)*par.get(1).get(0));
+            }else if(r==3){
+                int d1=(par.get(0).get(0))*(par.get(1).get(1)*par.get(2).get(2))-(par.get(1).get(2)*par.get(2).get(1));
+                int d2=(par.get(0).get(1))*(par.get(1).get(0)*par.get(2).get(2))-(par.get(1).get(2)*par.get(2).get(0));
+                int d3=(par.get(0).get(2))*(par.get(1).get(0)*par.get(2).get(1))-(par.get(1).get(1)*par.get(2).get(0));
+                d=d1-d2+d3;
+
+            }
+            if(d==0){
+                ret.add("Singular");
+            }
+        }
+        if(r!=c){
+            ret.add("Rectangular");
+            if(r==1){
+                ret.add("Row");
+            }else if(c==1){
+                ret.add("Column");
+            }
+        }
+        return ret;
     }
 }
 

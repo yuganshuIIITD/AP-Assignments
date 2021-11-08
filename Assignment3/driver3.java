@@ -14,7 +14,7 @@ public class driver3 {
             System.out.println("1. Enter Matrix ");
             System.out.println("2. Enter Matrix of specific type ");
             System.out.println("3. Change Elements of Matrix ");
-            System.out.println("4. Display Matrix Label");
+            System.out.println("4. Display Matrix Labels");
             System.out.println("5. Add");
             System.out.println("6. Sub");
             System.out.println("7. Mul");
@@ -43,41 +43,126 @@ public class driver3 {
                 }
                 int check=checktype(par,r,c);
                 if(check==1){
-
+                    matrix m1=new rectangular(r, c, par);
+                    matid.put(id, m1);
+                    id++;
                 }else if(check==2){
-                
+                    matrix m1=new row(r, c, par);
+                    matid.put(id, m1);
+                    id++;
                 }else if(check==3){
-
+                    matrix m1=new column(r, c, par);
+                    matid.put(id, m1);
+                    id++;
                 }else if(check==4){
-
+                    matrix m1=new square(r, c, par);
+                    matid.put(id, m1);
+                    id++;
                 }else if(check==5){
-
+                    matrix m1=new symmetric(r, c, par);
+                    matid.put(id, m1);
+                    id++;
                 }else if(check==6){
-
+                    matrix m1=new skew(r, c, par);
+                    matid.put(id, m1);
+                    id++;
                 }else if(check==7){
-
+                    matrix m1=new ut(r, c, par);
+                    matid.put(id, m1);
+                    id++;
                 }else if(check==8){
-
+                    matrix m1=new lt(r, c, par);
+                    matid.put(id, m1);
+                    id++;
                 }else if(check==9){
+                    matrix m1=new singular(r, c, par);
+                    matid.put(id, m1);
+                    id++;
 
                 }else if(check==10){
+                    matrix m1=new diagonal(r, c, par);
+                    matid.put(id, m1);
+                    id++;
 
                 }else if(check==11){
+                    matrix m1=new scalar(r, c, par);
+                    matid.put(id, m1);
+                    id++;
 
                 }else if(check==12){
+                    matrix m1=new identity(r, c, par);
+                    matid.put(id, m1);
+                    id++;
 
                 }else if(check==13){
+                    matrix m1=new singelton(r, c, par);
+                    matid.put(id, m1);
+                    id++;
 
                 }else if(check==14){
+                    matrix m1=new ones(r, c, par);
+                    matid.put(id, m1);
+                    id++;
 
                 }else if(check==15){
+                    matrix m1=new nullmat(r, c, par);
+                    matid.put(id, m1);
+                    id++;
 
                 }
             }else if(input==2){
+                System.out.println("Choose matrix type");
+                System.out.println("1. Rectangular");
+                System.out.println("2. Row");
+                System.out.println("3. Column");
+                System.out.println("4. Square");
+                System.out.println("5. Symmetric");
+                System.out.println("6. Skew Symmetric");
+                System.out.println("7. Upper triangular");
+                System.out.println("8. Lower triangular");
+                System.out.println("9. Singular ");
+                System.out.println("10. Diagonal");
+                System.out.println("11. Scalar");
+                System.out.println("12. Identity");
+                System.out.println("13. Singelton");
+                System.out.println("14. Ones");
+                System.out.println("15. Null");
+
+                int in=sc.nextInt();
+
+
 
             }else if(input==3){
+                int choosen_mat;
+                for(int key: matid.keySet()){
+                    
+                }
 
             }else if(input==4){
+
+            }else if(input==5){
+
+            }else if(input==6){
+
+            }else if(input==7){
+
+            }else if(input==8){
+
+            }else if(input==9){
+
+            }else if(input==10){
+            
+            }else if(input==11){
+
+            }else if(input==12){
+
+            }else if(input==13){
+
+            }else if(input==14){
+
+            }else if(input==15){
+
+            }else if(input==16){
 
             }
         }

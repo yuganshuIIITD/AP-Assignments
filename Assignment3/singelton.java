@@ -10,4 +10,8 @@ public class singelton extends scalar{
     int determinant() {
         return matval.get(0).get(0);
     }
+    @Override
+    ArrayList<ArrayList<Integer>> inverse() {
+        return matval;
+    }
 }

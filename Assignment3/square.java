@@ -19,4 +19,11 @@ public class square extends matrix{
             return d;
         }
     }
+    @Override
+    ArrayList<ArrayList<Integer>> inverse() {
+        if(rows==2){
+            
+        }
+        return matval;
+    }
 }

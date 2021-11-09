@@ -422,8 +422,20 @@ public class driver3 {
                     par.add(temp);
 
                 }
-                mt.matval=par;
-                System.out.println("Matrix Value Updated");
+                ArrayList<String> cmp=addlab(par, mt.rows,mt.cols);
+                Boolean same=true;
+                for(int i=0;i<matlabel.get(choosen_mat).size();i++){
+                    if(matlabel.get(choosen_mat).contains(cmp.get(i))==false){
+                        same=false;
+                    }
+                }
+                if(same=true){
+                    mt.matval=par;
+                    System.out.println("Matrix Value Updated");
+                }else{
+                    System.out.println("Can not update such values as labels are changing");
+                }
+                
 
             }else if(input==4){
                 int choosen_mat;
@@ -493,13 +505,14 @@ public class driver3 {
                 }
 
 
-            }else if(input==7){int mat1;
+            }else if(input==7){
+                int mat1;
                 int mat2;
                 for(int key: matid.keySet()){
                     System.out.println("id: "+key);
                     System.out.println(matid.get(key).matval);
                 }
-                System.out.println("Enter id of matrix");
+                System.out.println("Enter id of matrices");
                 mat1=sc.nextInt();
                 mat2=sc.nextInt();
                 matrix ma1=matid.get(mat1);
@@ -566,49 +579,89 @@ public class driver3 {
 
 
             }else if(input==9){
-                System.out.println("1. add");
-                System.out.println("2. sub");
-                System.out.println("3. mul");
-                System.out.println("choose which element wise operation to perform");
+                System.out.println("1. Multiply");
+                System.out.println("2. Divide");
+
+                // System.out.println("1. add");
+                // System.out.println("2. sub");
+                // System.out.println("3. mul");
+                // System.out.println("choose which element wise operation to perform");
                 int operation;
                 operation=sc.nextInt();
-                int choosen_mat;
+                // int choosen_mat;
+                // for(int key: matid.keySet()){
+                //     System.out.println("id: "+key);
+                //     System.out.println(matid.get(key));
+                // }
+                // System.out.println("Enter id of");
+                // choosen_mat=sc.nextInt();
+                // matrix mt=matid.get(choosen_mat);
+                // if(operation==1){
+                //     System.out.println("Enter by what no you want to add every element of the choosen matrix");
+                //     int no=sc.nextInt();
+                //     for(int i=0;i<mt.rows;i++){
+                //         for(int j=0;j<mt.cols;j++){
+                //             System.out.print(mt.matval.get(i).get(j)+no);
+                //         }
+                //         System.out.println("\n");
+                //     }
+                // }else if(operation==2){
+                //     System.out.println("Enter by what no you want to sub every element of the choosen matrix");
+                //     int no=sc.nextInt();
+                //     for(int i=0;i<mt.rows;i++){
+                //         for(int j=0;j<mt.cols;j++){
+                //             System.out.print(mt.matval.get(i).get(j)-no);
+                //         }
+                //         System.out.println("\n");
+                //     }
+
+                // }else if(operation==3){
+                //     System.out.println("Enter by what no you want to multiply every element of the choosen matrix");
+                //     int no=sc.nextInt();
+                //     for(int i=0;i<mt.rows;i++){
+                //         for(int j=0;j<mt.cols;j++){
+                //             System.out.print(mt.matval.get(i).get(j)*no);
+                //         }
+                //         System.out.println("\n");
+                //     }
+
+                // }
+                int mat1;
+                int mat2;
                 for(int key: matid.keySet()){
                     System.out.println("id: "+key);
-                    System.out.println(matid.get(key));
+                    System.out.println(matid.get(key).matval);
                 }
-                System.out.println("Enter id of");
-                choosen_mat=sc.nextInt();
-                matrix mt=matid.get(choosen_mat);
+                System.out.println("Enter id of matrices");
+                mat1=sc.nextInt();
+                mat2=sc.nextInt();
+                matrix ma1=matid.get(mat1);
+                matrix ma2=matid.get(mat2);
                 if(operation==1){
-                    System.out.println("Enter by what no you want to add every element of the choosen matrix");
-                    int no=sc.nextInt();
-                    for(int i=0;i<mt.rows;i++){
-                        for(int j=0;j<mt.cols;j++){
-                            System.out.print(mt.matval.get(i).get(j)+no);
+                    if(ma1.cols==ma2.cols && ma1.rows==ma2.rows){
+                        for(int i=0;i<ma1.rows;i++){
+                            ArrayList<Integer> res=new ArrayList<>();
+                            for(int j=0;j<ma1.cols;j++){
+                                res.add(ma1.matval.get(i).get(j)*ma2.matval.get(i).get(j));
+                            }
+                            System.out.println(res);
                         }
-                        System.out.println("\n");
+                    }else{
+                        System.out.println("Number of rows and columns of matrix should be equal to perform element wise operation");
                     }
+                    
                 }else if(operation==2){
-                    System.out.println("Enter by what no you want to sub every element of the choosen matrix");
-                    int no=sc.nextInt();
-                    for(int i=0;i<mt.rows;i++){
-                        for(int j=0;j<mt.cols;j++){
-                            System.out.print(mt.matval.get(i).get(j)-no);
+                    if(ma1.cols==ma2.cols && ma1.rows==ma2.rows){
+                        for(int i=0;i<ma1.rows;i++){
+                            ArrayList<Integer> res=new ArrayList<>();
+                            for(int j=0;j<ma1.cols;j++){
+                                res.add(ma1.matval.get(i).get(j)/ma2.matval.get(i).get(j));
+                            }
+                            System.out.println(res);
                         }
-                        System.out.println("\n");
+                    }else{
+                        System.out.println("Number of rows and columns of matrix should be equal to perform element wise operation");
                     }
-
-                }else if(operation==3){
-                    System.out.println("Enter by what no you want to multiply every element of the choosen matrix");
-                    int no=sc.nextInt();
-                    for(int i=0;i<mt.rows;i++){
-                        for(int j=0;j<mt.cols;j++){
-                            System.out.print(mt.matval.get(i).get(j)*no);
-                        }
-                        System.out.println("\n");
-                    }
-
                 }
 
             }else if(input==10){

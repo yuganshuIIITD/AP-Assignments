@@ -27,7 +27,12 @@ public class matrix {
         System.out.println("Determinant can not be calculated");
         return -1000;
     }
+    ArrayList<ArrayList<Integer>> inverse(){
+        System.out.println("Inverse can not be taken");
+        ArrayList<ArrayList<Integer>> n=new ArrayList<>();
+        return n;
 
+    }
 
 
 }

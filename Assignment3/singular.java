@@ -10,4 +10,10 @@ public class singular extends square{
     int determinant() {
         return 0;
     }
+    @Override
+    ArrayList<ArrayList<Integer>> inverse() {
+        System.out.println("Can not be calculated");
+        ArrayList<ArrayList<Integer>> n=new ArrayList<>();
+        return n;
+    }
 }

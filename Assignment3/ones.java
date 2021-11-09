@@ -6,5 +6,19 @@ public class ones extends matrix{
         super(rows, cols, matval);
         //TODO Auto-generated constructor stub
     }
+    @Override
+    int determinant() {
+        if(rows==cols){
+            if(rows==1){
+                return 1;
+            }else{
+                return 0;
+            }
+
+        }else{
+            System.out.println("Determinant can not be calculated");
+            return -1000;
+        }
+    }
     
 }

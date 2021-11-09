@@ -25,7 +25,7 @@ public class matrix {
     }
     int determinant(){
         System.out.println("Determinant can not be calculated");
-        return 0;
+        return -1000;
     }
 
 

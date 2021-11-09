@@ -19,7 +19,7 @@ public class driver3 {
             System.out.println("5. Add");
             System.out.println("6. Sub");
             System.out.println("7. Mul");
-            System.out.println("8. Div");
+            System.out.println("8. Get Matrix of required label type");
             System.out.println("9. Element Wise operation");
             System.out.println("10. Transpose");
             System.out.println("11. Inverse");
@@ -27,7 +27,7 @@ public class driver3 {
             System.out.println("13. Determinant");
             System.out.println("14. Compute A + A transpose");
             System.out.println("15. Compute Eigen vectors and values");
-            System.out.println("16. Get Matrix of required label type");
+            System.out.println("16. Exit");
             int input=sc.nextInt();
             if(input==1){
                 System.out.println("Enter no of rows in matrix");
@@ -521,6 +521,48 @@ public class driver3 {
                 }
 
             }else if(input==8){
+                System.out.println("Choose matrix type");
+                System.out.println("1. Rectangular");
+                System.out.println("2. Row");
+                System.out.println("3. Column");
+                System.out.println("4. Square");
+                System.out.println("5. Symmetric");
+                System.out.println("6. Skew Symmetric");
+                System.out.println("7. Upper triangular");
+                System.out.println("8. Lower triangular");
+                System.out.println("9. Singular ");
+                System.out.println("10. Diagonal");
+                System.out.println("11. Scalar");
+                System.out.println("12. Identity");
+                System.out.println("13. Singelton");
+                System.out.println("14. Ones");
+                System.out.println("15. Null");
+                int in=sc.nextInt();
+                String type="";
+                ArrayList<String> ct=new ArrayList<>();
+                ct.add("Rectangular");
+                ct.add("Row");
+                ct.add("Column");
+                ct.add("Square");
+                ct.add("Symmetric");
+                ct.add("Skew Symmetric");
+                ct.add("Upper Triangular");
+                ct.add("Lower Triangular");
+                ct.add("Singular");
+                ct.add("Diagonal");
+                ct.add("Scalar");
+                ct.add("Identity");
+                ct.add("Singelton");
+                ct.add("Ones");
+                ct.add("Null");
+                type=ct.get(in-1);
+                for(int key: matlabel.keySet()){
+                    if(matlabel.get(key).contains(type)==true){
+                        System.out.println("id : "+key);
+                        System.out.println(matid.get(key));
+
+                    }
+                }
 
 
             }else if(input==9){
@@ -629,6 +671,18 @@ public class driver3 {
 
 
             }else if(input==13){
+                int choosen_mat;
+                for(int key: matid.keySet()){
+                    System.out.println("id: "+key);
+                    System.out.println(matid.get(key));
+                }
+                System.out.println("Enter id of matrix you want to find determinant");
+                choosen_mat=sc.nextInt();
+                matrix mt=matid.get(choosen_mat);
+                int det=mt.determinant();
+                if(det!=-1000){
+                System.out.println("determinant of matrix is: "+det);
+                }
 
             }else if(input==14){
                 int choosen_mat;
@@ -657,7 +711,7 @@ public class driver3 {
             }else if(input==15){
 
             }else if(input==16){
-
+                break;
             }
         }
     }

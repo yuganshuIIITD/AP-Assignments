@@ -6,5 +6,8 @@ public class singelton extends scalar{
         super(rows, cols, matval);
         //TODO Auto-generated constructor stub
     }
-    
+    @Override
+    int determinant() {
+        return matval.get(0).get(0);
+    }
 }

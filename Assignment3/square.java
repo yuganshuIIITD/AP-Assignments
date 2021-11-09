@@ -6,5 +6,8 @@ public class square extends matrix{
         super(rows, cols, matval);
         //TODO Auto-generated constructor stub
     }
-    
+    int determinant(){
+        
+        return 0;
+    }
 }

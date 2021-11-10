@@ -168,68 +168,102 @@ public class driver3 {
                 int in=sc.nextInt();
                 ArrayList<String> l=new ArrayList<>();
                 if(in==1){
+                    int k=0;
                     ArrayList<ArrayList<Integer>> par=new ArrayList<>();
-                    ArrayList<Integer> temp1=new ArrayList<>();
-                    temp1.add(1);
-                    temp1.add(2);
-                    temp1.add(3);
-                    ArrayList<Integer> temp2=new ArrayList<>();
-                    temp2.add(4);
-                    temp2.add(5);
-                    temp2.add(6);
-                    par.add(temp1);
-                    par.add(temp2);
-                    matrix m1=new rectangular(2, 3, par);
+                    int r;
+                    int c;
+                    System.out.println("Enter no of rows");
+                    r=sc.nextInt();
+                    System.out.println("Enter no of columns");
+                    c=sc.nextInt();
+                    for(int i=0;i<r;i++){
+                        ArrayList<Integer> temp1=new ArrayList<>();
+                        for(int j=0;j<c;j++){
+                            temp1.add(k);
+                            k++;
+                        }
+                        par.add(temp1);
+                    }
+                    
+                    
+                    matrix m1=new rectangular(r, c, par);
                     matid.put(id, m1);
-                    l=addlab(par,2,3);
+                    l=addlab(par,r,c);
                     matlabel.put(id, l);
                     id++;
 
 
                 }else if(in==2){
+                    int k=0;
                     ArrayList<ArrayList<Integer>> par=new ArrayList<>();
-                    ArrayList<Integer> temp1=new ArrayList<>();
-                    temp1.add(1);
-                    temp1.add(2);
-                    temp1.add(3);
-                    par.add(temp1);
-                    matrix m1=new row(1, 3, par);
+                    int r;
+                    int c;
+                    System.out.println("Enter no of rows");
+                    r=sc.nextInt();
+                    
+                    c=1;
+                    for(int i=0;i<r;i++){
+                        ArrayList<Integer> temp1=new ArrayList<>();
+                        for(int j=0;j<c;j++){
+                            temp1.add(k);
+                            k++;
+                        }
+                        par.add(temp1);
+                    }
+                    
+                    
+                    matrix m1=new rectangular(r, c, par);
                     matid.put(id, m1);
-                    l=addlab(par,1,3);
+                    l=addlab(par,r,c);
                     matlabel.put(id, l);
                     id++;
 
                 }else if(in==3){
+                    int k=0;
                     ArrayList<ArrayList<Integer>> par=new ArrayList<>();
-                    ArrayList<Integer> temp1=new ArrayList<>();
-                    ArrayList<Integer> temp2=new ArrayList<>();
-                    ArrayList<Integer> temp3=new ArrayList<>();
-                    temp1.add(1);
-                    temp2.add(2);
-                    temp3.add(3);
-                    par.add(temp1);
-                    par.add(temp2);
-                    par.add(temp3);
-                    matrix m1=new column(3, 1, par);
+                    int r;
+                    int c;
+                    r=1;
+                    System.out.println("Enter no of columns");
+                    c=sc.nextInt();
+                    for(int i=0;i<r;i++){
+                        ArrayList<Integer> temp1=new ArrayList<>();
+                        for(int j=0;j<c;j++){
+                            temp1.add(k);
+                            k++;
+                        }
+                        par.add(temp1);
+                    }
+                    
+                    
+                    matrix m1=new rectangular(r, c, par);
                     matid.put(id, m1);
-                    l=addlab(par,3,1);
+                    l=addlab(par,r,c);
                     matlabel.put(id, l);
                     id++;
 
 
                 }else if(in==4){
+                    int k=0;
                     ArrayList<ArrayList<Integer>> par=new ArrayList<>();
-                    ArrayList<Integer> temp1=new ArrayList<>();
-                    ArrayList<Integer> temp2=new ArrayList<>();
-                    temp1.add(1);
-                    temp1.add(2);
-                    temp2.add(3);
-                    temp2.add(4);
-                    par.add(temp1);
-                    par.add(temp2);
-                    matrix m1=new square(2, 2, par);
+                    int r;
+                    int c;
+                    System.out.println("Enter dimention");
+                    r=sc.nextInt();
+                    c=r;
+                    for(int i=0;i<r;i++){
+                        ArrayList<Integer> temp1=new ArrayList<>();
+                        for(int j=0;j<c;j++){
+                            temp1.add(k);
+                            k++;
+                        }
+                        par.add(temp1);
+                    }
+                    
+                    
+                    matrix m1=new rectangular(r, c, par);
                     matid.put(id, m1);
-                    l=addlab(par,2,2);
+                    l=addlab(par,r,c);
                     matlabel.put(id, l);
                     id++;
 
@@ -238,15 +272,37 @@ public class driver3 {
                     ArrayList<ArrayList<Integer>> par=new ArrayList<>();
                     ArrayList<Integer> temp1=new ArrayList<>();
                     ArrayList<Integer> temp2=new ArrayList<>();
+                    ArrayList<Integer> temp3=new ArrayList<>();
+                    System.out.println("Enter dimention");
+                    int dimention=sc.nextInt();
+                    matrix m1;
+                    if(dimention==2){
                     temp1.add(2);
                     temp1.add(2);
                     temp2.add(2);
                     temp2.add(2);
                     par.add(temp1);
                     par.add(temp2);
-                    matrix m1=new symmetric(2, 2, par);
-                    matid.put(id, m1);
+                    m1=new symmetric(2, 2, par);
                     l=addlab(par,2,2);
+                    }else{
+                    temp1.add(2);
+                    temp1.add(2);
+                    temp1.add(2);
+                    temp2.add(2);
+                    temp2.add(2);
+                    temp2.add(2);
+                    temp3.add(2);
+                    temp3.add(2);
+                    temp3.add(2);
+                    par.add(temp1);
+                    par.add(temp2);
+                    par.add(temp3);
+                    m1=new symmetric(3, 3, par);
+                    l=addlab(par,3,3);
+                    }
+                    matid.put(id, m1);
+                    
                     matlabel.put(id, l);
                     id++;
 
@@ -254,15 +310,37 @@ public class driver3 {
                     ArrayList<ArrayList<Integer>> par=new ArrayList<>();
                     ArrayList<Integer> temp1=new ArrayList<>();
                     ArrayList<Integer> temp2=new ArrayList<>();
+                    ArrayList<Integer> temp3=new ArrayList<>();
+                    System.out.println("Enter dimention");
+                    int dimention=sc.nextInt();
+                    matrix m1;
+                    if(dimention==2){
                     temp1.add(0);
                     temp1.add(-5);
                     temp2.add(5);
                     temp2.add(0);
                     par.add(temp1);
                     par.add(temp2);
-                    matrix m1=new skew(2, 2, par);
-                    matid.put(id, m1);
+                    m1=new skew(2, 2, par);
                     l=addlab(par,2,2);
+                    }else{
+                    temp1.add(0);
+                    temp1.add(-2);
+                    temp1.add(-2);
+                    temp2.add(2);
+                    temp2.add(0);
+                    temp2.add(-2);
+                    temp3.add(2);
+                    temp3.add(0);
+                    temp3.add(2);
+                    par.add(temp1);
+                    par.add(temp2);
+                    par.add(temp3);
+                    m1=new skew(3, 3, par);
+                    l=addlab(par,3,3);
+
+                    }
+                    matid.put(id, m1);
                     matlabel.put(id, l);
                     id++;
 
@@ -270,28 +348,69 @@ public class driver3 {
                     ArrayList<ArrayList<Integer>> par=new ArrayList<>();
                     ArrayList<Integer> temp1=new ArrayList<>();
                     ArrayList<Integer> temp2=new ArrayList<>();
+                    ArrayList<Integer> temp3=new ArrayList<>();
+                    System.out.println("Enter dimention");
+                    int dimention=sc.nextInt();
+                    matrix m1;
+                    if(dimention==2){
                     temp1.add(1);
                     temp1.add(2);
                     temp2.add(0);
                     temp2.add(3);
                     par.add(temp1);
                     par.add(temp2);
-                    matrix m1=new ut(2, 2, par);
+                    m1=new ut(2, 2, par);
+                    l=addlab(par,3,3);
+                    }else{
+                        temp1.add(1);
+                        temp1.add(-2);
+                        temp1.add(-2);
+                        temp2.add(0);
+                        temp2.add(0);
+                        temp2.add(-2);
+                        temp3.add(0);
+                        temp3.add(0);
+                        temp3.add(0);
+                        par.add(temp1);
+                        par.add(temp2);
+                        par.add(temp3);
+                        m1=new ut(3, 3, par);
+                        l=addlab(par,3,3);
+                    }
                     matid.put(id, m1);
-                    l=addlab(par,2,2);
                     matlabel.put(id, l);
                     id++;
 
                 }else if(in==8){ArrayList<ArrayList<Integer>> par=new ArrayList<>();
                     ArrayList<Integer> temp1=new ArrayList<>();
                     ArrayList<Integer> temp2=new ArrayList<>();
+                    ArrayList<Integer> temp3=new ArrayList<>();
+                    System.out.println("Enter dimention");
+                    int dimention=sc.nextInt();
+                    matrix m1;
+                    if(dimention==2){
                     temp1.add(1);
                     temp1.add(0);
                     temp2.add(2);
                     temp2.add(3);
                     par.add(temp1);
                     par.add(temp2);
-                    matrix m1=new lt(2, 2, par);
+                    m1=new lt(2, 2, par);
+                    }else{
+                    temp1.add(1);
+                    temp1.add(0);
+                    temp1.add(0);
+                    temp2.add(2);
+                    temp2.add(0);
+                    temp2.add(0);
+                    temp3.add(2);
+                    temp3.add(0);
+                    temp3.add(2);
+                    par.add(temp1);
+                    par.add(temp2);
+                    par.add(temp3);
+                    m1=new lt(3, 3, par);
+                    }
                     matid.put(id, m1);
                     l=addlab(par,2,2);
                     matlabel.put(id, l);
@@ -301,15 +420,37 @@ public class driver3 {
                     ArrayList<ArrayList<Integer>> par=new ArrayList<>();
                     ArrayList<Integer> temp1=new ArrayList<>();
                     ArrayList<Integer> temp2=new ArrayList<>();
+                    ArrayList<Integer> temp3=new ArrayList<>();
+                    System.out.println("Enter dimention");
+                    int dimention=sc.nextInt();
+                    matrix m1;
+                    if(dimention==2){
                     temp1.add(1);
                     temp1.add(2);
                     temp2.add(1);
                     temp2.add(2);
                     par.add(temp1);
                     par.add(temp2);
-                    matrix m1=new singular(2, 2, par);
-                    matid.put(id, m1);
+                    m1=new singular(2, 2, par);
                     l=addlab(par,2,2);
+                    }else{
+                    temp1.add(2);
+                    temp1.add(2);
+                    temp1.add(2);
+                    temp2.add(2);
+                    temp2.add(2);
+                    temp2.add(2);
+                    temp3.add(2);
+                    temp3.add(2);
+                    temp3.add(2);
+                    par.add(temp1);
+                    par.add(temp2);
+                    par.add(temp3);
+                    m1=new singular(3, 3, par);
+                    l=addlab(par,3,3);
+                    }
+                    matid.put(id, m1);
+                    
                     matlabel.put(id, l);
                     id++;
 
@@ -318,15 +459,38 @@ public class driver3 {
                     ArrayList<ArrayList<Integer>> par=new ArrayList<>();
                     ArrayList<Integer> temp1=new ArrayList<>();
                     ArrayList<Integer> temp2=new ArrayList<>();
+                    ArrayList<Integer> temp3=new ArrayList<>();
+                    System.out.println("Enter dimention");
+                    int dimention=sc.nextInt();
+                    matrix m1;
+                    if(dimention==2){
                     temp1.add(1);
                     temp1.add(0);
                     temp2.add(0);
                     temp2.add(2);
                     par.add(temp1);
                     par.add(temp2);
-                    matrix m1=new diagonal(2, 2, par);
-                    matid.put(id, m1);
+                    m1=new diagonal(2, 2, par);
                     l=addlab(par,2,2);
+                    }else{
+                    temp1.add(1);
+                    temp1.add(0);
+                    temp1.add(0);
+                    temp2.add(0);
+                    temp2.add(2);
+                    temp2.add(0);
+                    temp3.add(0);
+                    temp3.add(0);
+                    temp3.add(2);
+                    par.add(temp1);
+                    par.add(temp2);
+                    par.add(temp3);
+                    m1=new diagonal(3, 3, par);
+                    l=addlab(par,3,3);
+
+                    }
+                
+                    matid.put(id, m1);
                     matlabel.put(id, l);
                     id++;
 
@@ -334,15 +498,36 @@ public class driver3 {
                     ArrayList<ArrayList<Integer>> par=new ArrayList<>();
                     ArrayList<Integer> temp1=new ArrayList<>();
                     ArrayList<Integer> temp2=new ArrayList<>();
+                    ArrayList<Integer> temp3=new ArrayList<>();
+                    System.out.println("Enter dimention");
+                    int dimention=sc.nextInt();
+                    matrix m1;
+                    if(dimention==2){
                     temp1.add(2);
                     temp1.add(0);
                     temp2.add(0);
                     temp2.add(2);
                     par.add(temp1);
                     par.add(temp2);
-                    matrix m1=new scalar(2, 2, par);
-                    matid.put(id, m1);
+                    m1=new scalar(2, 2, par);
                     l=addlab(par,2,2);
+                    }else{
+                        temp1.add(2);
+                        temp1.add(0);
+                        temp1.add(0);
+                        temp2.add(0);
+                        temp2.add(2);
+                        temp2.add(0);
+                        temp3.add(0);
+                        temp3.add(0);
+                        temp3.add(2);
+                        par.add(temp1);
+                        par.add(temp2);
+                        par.add(temp3);
+                        m1=new scalar(3, 3, par);
+                        l=addlab(par,3,3); 
+                    }
+                    matid.put(id, m1);
                     matlabel.put(id, l);
                     id++;
 
@@ -350,15 +535,37 @@ public class driver3 {
                     ArrayList<ArrayList<Integer>> par=new ArrayList<>();
                     ArrayList<Integer> temp1=new ArrayList<>();
                     ArrayList<Integer> temp2=new ArrayList<>();
+                    ArrayList<Integer> temp3=new ArrayList<>();
+                    System.out.println("Enter dimention");
+                    int dimention=sc.nextInt();
+                    matrix m1;
+                    if(dimention==2){
                     temp1.add(1);
                     temp1.add(0);
                     temp2.add(0);
                     temp2.add(1);
                     par.add(temp1);
                     par.add(temp2);
-                    matrix m1=new identity(2, 2, par);
-                    matid.put(id, m1);
+                    m1=new identity(2, 2, par);
                     l=addlab(par,2,2);
+                    }else{
+                        temp1.add(1);
+                        temp1.add(0);
+                        temp1.add(0);
+                        temp2.add(0);
+                        temp2.add(1);
+                        temp2.add(0);
+                        temp3.add(0);
+                        temp3.add(0);
+                        temp3.add(1);
+                        par.add(temp1);
+                        par.add(temp2);
+                        par.add(temp3);
+                        m1=new scalar(3, 3, par);
+                        l=addlab(par,3,3); 
+                    }
+                    matid.put(id, m1);
+                    
                     matlabel.put(id, l);
                     id++;
                 }else if(in==13){
@@ -373,34 +580,49 @@ public class driver3 {
                     id++;
 
                 }else if(in==14){
+
                     ArrayList<ArrayList<Integer>> par=new ArrayList<>();
-                    ArrayList<Integer> temp1=new ArrayList<>();
-                    ArrayList<Integer> temp2=new ArrayList<>();
-                    temp1.add(1);
-                    temp1.add(1);
-                    temp2.add(1);
-                    temp2.add(1);
-                    par.add(temp1);
-                    par.add(temp2);
-                    matrix m1=new ones(2, 2, par);
+                    int r;
+                    int c;
+                    System.out.println("Enter no of rows");
+                    r=sc.nextInt();
+                    System.out.println("Enter no of columns");
+                    c=sc.nextInt();
+                    for(int i=0;i<r;i++){
+                        ArrayList<Integer> temp1=new ArrayList<>();
+                        for(int j=0;j<c;j++){
+                            temp1.add(1);
+                        }
+                        par.add(temp1);
+                    }
+                    
+                    
+                    matrix m1=new ones(r, c, par);
                     matid.put(id, m1);
-                    l=addlab(par,2,2);
+                    l=addlab(par,r,c);
                     matlabel.put(id, l);
                     id++;
 
                 }else if(in==15){
                     ArrayList<ArrayList<Integer>> par=new ArrayList<>();
-                    ArrayList<Integer> temp1=new ArrayList<>();
-                    ArrayList<Integer> temp2=new ArrayList<>();
-                    temp1.add(0);
-                    temp1.add(0);
-                    temp2.add(0);
-                    temp2.add(0);
-                    par.add(temp1);
-                    par.add(temp2);
-                    matrix m1=new nullmat(2, 2, par);
+                    int r;
+                    int c;
+                    System.out.println("Enter no of rows");
+                    r=sc.nextInt();
+                    System.out.println("Enter no of columns");
+                    c=sc.nextInt();
+                    for(int i=0;i<r;i++){
+                        ArrayList<Integer> temp1=new ArrayList<>();
+                        for(int j=0;j<c;j++){
+                            temp1.add(0);
+                        }
+                        par.add(temp1);
+                    }
+                    
+                    
+                    matrix m1=new nullmat(r, c, par);
                     matid.put(id, m1);
-                    l=addlab(par,2,2);
+                    l=addlab(par,r,c);
                     matlabel.put(id, l);
                     id++;
 

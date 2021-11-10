@@ -29,7 +29,8 @@ public class driver3 {
             System.out.println("15. Compute Eigen vectors and values");
             System.out.println("16. Solve Linear equations ");
             System.out.println("17. Use singelton matrix as scalar");
-            System.out.println("18. Exit");
+            System.out.println("18. divide");
+            System.out.println("19. Exit");
             System.out.println("Enter option no");
             int input=sc.nextInt();
             if(input==1){
@@ -815,6 +816,38 @@ public class driver3 {
                     System.out.println(t);
                 }
             }else if(input==18){
+                int mat1;
+                int mat2;
+                for(int key: matid.keySet()){
+                    System.out.println("id: "+key);
+                    System.out.println(matid.get(key).matval);
+                }
+                System.out.println("Enter id of matrix");
+                mat1=sc.nextInt();
+                mat2=sc.nextInt();
+                matrix ma1=matid.get(mat1);
+                matrix ma2=matid.get(mat2);
+                ArrayList<ArrayList<Integer>> par=new ArrayList<>();
+                if(ma2.determinant()==-1000){
+                    System.out.println("Inverse of ma2 does not exist so can not find matrix 1 into inverse of matrix 2");
+                }else{
+                    par=ma2.inverse();
+                    if(ma1.cols==par.size()){
+                        for(int i=0;i<ma1.rows;i++){
+                            for(int j=0;j<ma2.cols;j++){
+                                int val=0;
+                                for(int k=0;k<ma2.rows;k++){
+                                    val=val + (ma1.matval.get(i).get(k))*(par.get(k).get(j));
+                                }
+                                System.out.print(val+" ");
+                            }
+                            System.out.println("\n");
+                        }
+                    }else{
+                        System.out.println("Not possible");
+                    }
+                }
+            }else if(input==19){
                 break;
             }
         }

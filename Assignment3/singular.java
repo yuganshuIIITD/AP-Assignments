@@ -6,10 +6,10 @@ public class singular extends square{
         super(rows, cols, matval);
         //TODO Auto-generated constructor stub
     }
-    @Override
-    int determinant() {
-        return 0;
-    }
+    // @Override
+    // int determinant() {
+    //     return 0;
+    // }
     @Override
     ArrayList<ArrayList<Integer>> inverse() {
         System.out.println("Can not be calculated");

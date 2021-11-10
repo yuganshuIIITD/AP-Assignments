@@ -6,9 +6,10 @@ public class square extends matrix{
         super(rows, cols, matval);
         //TODO Auto-generated constructor stub
     }
+
     int determinant(){
         if(rows==2){
-            return((matval.get(0).get(0)*matval.get(1).get(1))-matval.get(1).get(0)*matval.get(0).get(1));
+            return((matval.get(0).get(0)*matval.get(1).get(1))-(matval.get(1).get(0)*matval.get(0).get(1)));
         }else if(rows==1){
             return(matval.get(0).get(0));
         }else{
@@ -22,7 +23,7 @@ public class square extends matrix{
     @Override
     ArrayList<ArrayList<Integer>> inverse() {
         if(rows==2){
-            
+            return matval;
         }
         return matval;
     }

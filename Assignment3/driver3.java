@@ -27,7 +27,8 @@ public class driver3 {
             System.out.println("13. Determinant");
             System.out.println("14. Compute A + A transpose");
             System.out.println("15. Compute Eigen vectors and values");
-            System.out.println("16. Exit");
+            System.out.println("16. Use singelton matrix as scalar");
+            System.out.println("17. Solve Linear equations");
             int input=sc.nextInt();
             if(input==1){
                 System.out.println("Enter no of rows in matrix");
@@ -429,7 +430,7 @@ public class driver3 {
                         same=false;
                     }
                 }
-                if(same=true){
+                if(same==true){
                     mt.matval=par;
                     System.out.println("Matrix Value Updated");
                 }else{
@@ -572,7 +573,7 @@ public class driver3 {
                 for(int key: matlabel.keySet()){
                     if(matlabel.get(key).contains(type)==true){
                         System.out.println("id : "+key);
-                        System.out.println(matid.get(key));
+                        System.out.println(matid.get(key).matval);
 
                     }
                 }
@@ -668,7 +669,7 @@ public class driver3 {
                 int choosen_mat;
                 for(int key: matid.keySet()){
                     System.out.println("id: "+key);
-                    System.out.println(matid.get(key));
+                    System.out.println(matid.get(key).matval);
                 }
                 System.out.println("Enter id of matrix you want to transpose");
                 choosen_mat=sc.nextInt();
@@ -689,7 +690,7 @@ public class driver3 {
                 int choosen_mat;
                 for(int key: matid.keySet()){
                     System.out.println("id: "+key);
-                    System.out.println(matid.get(key));
+                    System.out.println(matid.get(key).matval);
                 }
                 System.out.println("Enter id of matrix you want to transpose");
                 choosen_mat=sc.nextInt();
@@ -727,7 +728,7 @@ public class driver3 {
                 int choosen_mat;
                 for(int key: matid.keySet()){
                     System.out.println("id: "+key);
-                    System.out.println(matid.get(key));
+                    System.out.println(matid.get(key).matval);
                 }
                 System.out.println("Enter id of matrix you want to find determinant");
                 choosen_mat=sc.nextInt();
@@ -741,7 +742,7 @@ public class driver3 {
                 int choosen_mat;
                 for(int key: matid.keySet()){
                     System.out.println("id: "+key);
-                    System.out.println(matid.get(key));
+                    System.out.println(matid.get(key).matval);
                 }
                 System.out.println("Enter id of matrix you want to transpose and add to itself");
                 choosen_mat=sc.nextInt();
@@ -764,7 +765,40 @@ public class driver3 {
             }else if(input==15){
 
             }else if(input==16){
-                break;
+                
+            }else if(input==17){
+                System.out.println("1. Multiply");
+                System.out.println("2. Divide");
+                int op=sc.nextInt();
+                int choosen_mat;
+                for(int key: matid.keySet()){
+                    if(matlabel.get(key).contains("Singelton")==true){
+                    System.out.println("id: "+key);
+                    System.out.println(matid.get(key).matval);
+                    }
+                }
+                System.out.println("Enter id of singelton matric which you want to use as scalar");
+                choosen_mat=sc.nextInt();
+                matrix sm=matid.get(choosen_mat);
+                int mat;
+                for(int key: matid.keySet()){
+                    System.out.println("id: "+key);
+                    System.out.println(matid.get(key).matval);
+                }
+                System.out.println("Enter id of matrix");
+                mat=sc.nextInt();
+                matrix mt=matid.get(mat);
+                for(int i=0;i<mt.rows;i++){
+                    ArrayList<Integer> t=new ArrayList<>();
+                    for(int j=0;j<mt.cols;j++){
+                        if(op==1){
+                        t.add(mt.matval.get(i).get(j)*sm.matval.get(0).get(0));
+                        }else if(op==2){
+                            t.add(mt.matval.get(i).get(j)/sm.matval.get(0).get(0));
+                        }
+                    }
+                    System.out.println(t);
+                }
             }
         }
     }
@@ -778,14 +812,13 @@ public class driver3 {
         boolean on=true;
         int t=par.get(0).get(0);
         for(int i=0;i<r;i++){
-            for(int j=0;j<r;j++){
+            for(int j=0;j<c;j++){
                 if(par.get(i).get(j)!=t){
                     on=false;
-                    break;
                 }
             }
         }
-        if(on=true){
+        if(on==true){
             if(t==1){
                 return 14;
             }
@@ -908,14 +941,14 @@ public class driver3 {
         boolean on=true;
         int t=par.get(0).get(0);
         for(int i=0;i<r;i++){
-            for(int j=0;j<r;j++){
+            for(int j=0;j<c;j++){
                 if(par.get(i).get(j)!=t){
                     on=false;
                     break;
                 }
             }
         }
-        if(on=true){
+        if(on==true){
             if(t==1){
                 ret.add("Ones");
             }

@@ -27,8 +27,10 @@ public class driver3 {
             System.out.println("13. Determinant");
             System.out.println("14. Compute A + A transpose");
             System.out.println("15. Compute Eigen vectors and values");
-            System.out.println("16. Use singelton matrix as scalar");
-            System.out.println("17. Solve Linear equations");
+            System.out.println("16. Solve Linear equations ");
+            System.out.println("17. Use singelton matrix as scalar");
+            System.out.println("18. Exit");
+            System.out.println("Enter option no");
             int input=sc.nextInt();
             if(input==1){
                 System.out.println("Enter no of rows in matrix");
@@ -681,6 +683,19 @@ public class driver3 {
                 }
                 
             }else if(input==11){
+                int choosen_mat;
+                for(int key: matid.keySet()){
+                    System.out.println("id: "+key);
+                    System.out.println(matid.get(key).matval);
+                }
+                System.out.println("Enter id of matrix you want to inverse");
+                choosen_mat=sc.nextInt();
+                matrix mt=matid.get(choosen_mat);
+                ArrayList<ArrayList<Integer>> par=mt.inverse();
+                for(int i=0;i<par.size();i++){
+                    System.out.println(par.get(i));
+                }
+
 
             }else if(input==12){
                 System.out.println("1. Row wise mean");
@@ -799,6 +814,8 @@ public class driver3 {
                     }
                     System.out.println(t);
                 }
+            }else if(input==18){
+                break;
             }
         }
     }

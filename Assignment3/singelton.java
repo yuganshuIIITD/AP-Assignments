@@ -12,6 +12,11 @@ public class singelton extends scalar{
     }
     @Override
     ArrayList<ArrayList<Integer>> inverse() {
-        return matval;
+        ArrayList<ArrayList<Integer>> n=new ArrayList<>();
+        ArrayList<Integer> t=new ArrayList<>();
+        t.add(1/matval.get(0).get(0));
+        n.add(t);
+        return n;
     }
+
 }

@@ -1001,8 +1001,52 @@ public class driver3 {
                 }
 
             }else if(input==15){
+                int choosen_mat;
+                for(int key: matid.keySet()){
+                    System.out.println("id: "+key);
+                    System.out.println(matid.get(key).matval);
+                }
+                System.out.println("Enter id of matrix you want to transpose and add to itself");
+                choosen_mat=sc.nextInt();
+                matrix mt=matid.get(choosen_mat);
+                double a = mt.matval.get(0).get(0);
+                double b = mt.matval.get(0).get(1);
+                double c = mt.matval.get(1).get(0);
+                double d = mt.matval.get(1).get(1);
+
+                double eigenvalue1 = ((a+d) + Math.sqrt( Math.pow(a-d,2) + 4*b*c))/2;
+                double eigenvalue2 = ((a+d) - Math.sqrt( Math.pow(a-d,2) + 4*b*c))/2;
+                System.out.println("Eigen values");
+                System.out.println(eigenvalue1);
+                System.out.println(eigenvalue2);
 
             }else if(input==16){
+                int mat1;
+                int mat2;
+                for(int key: matid.keySet()){
+                    System.out.println("id: "+key);
+                    System.out.println(matid.get(key).matval);
+                }
+                System.out.println("Enter id of matrix");
+                mat1=sc.nextInt();
+                mat2=sc.nextInt();
+                matrix ma1=matid.get(mat1);
+                matrix ma2=matid.get(mat2);
+                ArrayList<ArrayList<Integer>> eq=ma1.inverse();  
+                if(ma1.cols==ma2.rows){
+                    for(int i=0;i<ma1.rows;i++){
+                        for(int j=0;j<ma2.cols;j++){
+                            int val=0;
+                            for(int k=0;k<ma2.rows;k++){
+                                val=val + (eq.get(i).get(k))*(ma2.matval.get(k).get(j));
+                            }
+                            System.out.print(val+" ");
+                        }
+                        System.out.println("\n");
+                    }
+                }else{
+                    System.out.println("Not possible");
+                }       
                 
             }else if(input==17){
                 System.out.println("1. Multiply");
